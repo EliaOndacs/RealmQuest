@@ -1,1 +1,1 @@
-mypy --check-untyped-defs app.py > mypy.result
+mypy --check-untyped-defs app.py lts.py > mypy.result
