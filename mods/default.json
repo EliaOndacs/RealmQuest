@@ -1,0 +1,231 @@
+{
+  "author": "EliaOndacs",
+  "1": {
+    "name": "Home",
+    "required_actions": [],
+    "actions": {
+      "talk to mom": "you and your mom talked a lot!.",
+      "Sleep": "You take a nap and feel refreshed.",
+      "Eat": "You enjoy-ed a delicious meal.",
+      "study": "one hour of studying.\ngood job!.",
+      "sneak out": "you sneaked out of the house!.\n\t ohh. your mama gonna be mad.",
+      "research": "you researched about camping!.\n\t ohh really. camping!?"
+    },
+    "achievements": [
+      {
+        "name": "lazy but talkative",
+        "description": "your so lazy but at least you talk and comminate with people.",
+        "actions": ["talk to mom", "Eat", "Sleep"]
+      },
+      {
+        "name": "hard worker but nerd",
+        "description": "you work hard for your future!.\n\tbut you are still a nerd.",
+        "actions": ["study", "Sleep"],
+        "bh": ["bh-default\\trigger_emo_phase.toml"]
+      },
+      {
+        "name": "researcher of the day",
+        "description": "you researched a lot!.",
+        "actions": ["research", "research", "study"]
+      }
+    ]
+  },
+  "2": {
+    "name": "Park",
+    "required_actions": ["talk to mom", "Eat", "study"],
+    "actions": {
+      "walk": "you walked for 1 mile.",
+      "drink water": "you drink-ed water",
+      "talk to the girl": "you talk to the girl little bit",
+      "flex": "you flexed your car, muscles, look",
+      "running": "you ran the whole park 5 times!."
+    },
+    "achievements": [
+      {
+        "name": "thirsty",
+        "description": "you walked a lot and got thirsty so you drink-ed water",
+        "actions": ["walk", "drink water"]
+      },
+      {
+        "name": "rizzler",
+        "description": "you rizz-ed a lot of girls today.",
+        "actions": ["talk to the girl", "drink water", "flex"]
+      },
+      {
+        "name": "park not gym",
+        "description": "you don't need to go to the gym.\n\tyou got the park.",
+        "actions": ["running", "#thirsty"]
+      },
+      {
+        "name": "arrested",
+        "description": "people called the police for sexual assault on you and now you are arrested",
+        "actions": ["#rizzler", "flex"],
+        "end": true,
+        "endText": "sexually assaulting people is wrong. don't do that again."
+      }
+    ]
+  },
+  "3": {
+    "name": "forest",
+    "required_actions": [
+      "sneak out",
+      "#park not gym",
+      "#researcher of the day"
+    ],
+    "actions": {
+      "hunt a squirrel": "you hunt and killed the squirrel.\n\tseriously? that creature was alive!.\n\twhat was your motivation?",
+      "wonder around": "you wondered around for 1 hour.",
+      "think": "you think-ed for 15 minute.",
+      "eat": "you forgot to take food from home before you sneak out.\n\tdummy. you gonna survive this you know?1!."
+    },
+    "achievements": [
+      {
+        "name": "lost and dead",
+        "description": "you wondered around little too much. you got lost and died\ndue to starvation.\n\they. hey. can you hear me? ohh shit i think she's dead.\n\twhat can i do? hahahahaha",
+        "actions": ["wonder around", "hunt a squirrel", "eat", "!think"],
+        "end": true,
+        "endText": "wow. ofc you die if you wonder around the forest with no food idiot."
+      },
+      {
+        "name": "still fine! #ForNow",
+        "description": "you are still alive and know the way back home.",
+        "actions": ["wonder around", "think", "!eat", "!hunt a squirrel"]
+      }
+    ],
+    "SuperActions": {
+      "secret1": "print(\"so you found the secret message huh?\");print(\"well don't think this is all hidden in this game!!\")"
+    }
+  },
+  "4": {
+    "name": "neighbor",
+    "startup": "did you just walked in your neighbor house without any permission?\nthat is weird.",
+    "required_actions": ["sneak out"],
+    "actions": {
+      "say hi": "neighbor wife: yo wtf? where did you came from in our house? get out!!!!!!\n\t she's right. you shouldn't just enter someone house."
+    },
+    "achievements": [
+      {
+        "name": "being caught",
+        "description": "you are being caught sneaking in your neighbor house!.",
+        "actions": ["!#being caught", "say hi", "!#being caught again"]
+      },
+      {
+        "name": "being caught again",
+        "description": "you are being caught 'again' sneaking in your neighbor house!.\n\tjeez you should stop.",
+        "actions": ["say hi", "#being caught"]
+      },
+      {
+        "name": "arrested",
+        "description": "neighbor called the police and now you are arrested",
+        "actions": ["#being caught again", "say hi"],
+        "end": true,
+        "endText": "yeah. you better don't do that again"
+      }
+    ],
+    "SuperActions": {
+      "fuck": "END()"
+    }
+  },
+  "5": {
+    "name": "graveyard",
+    "startup": "you entered the graveyard. but why?\n\they buddy are you okay?",
+    "required_attribute": {
+      "emo_phase": true
+    },
+    "required_actions": [
+      "sneak out",
+      "!#im going back and never coming back to this place"
+    ],
+    "actions": {
+      "walk": "you walked a bit.\n\tlisten if you have any problem just tell me.\n\ti can help you!.we can help you!.",
+      "scream": "you screamed and cried for a bit.\n\tlisten i can really help you!. you know!.",
+      "check on cousin": "you checked on your cousin grave.\n\toh god!. look at you. we should go!!.",
+      "action": "you done some actions.",
+      "think": "you think-ed about the ????? for some time.\n\tyou go insane!!. please stop!!. lets ust go back home."
+    },
+    "achievements": [
+      {
+        "name": "she was a good woman.",
+        "description": "your cousin was a really nice woman. all of the childhood\nmemories!!. you would never forgive the girl who did this\nto her!!.",
+        "actions": ["check on cousin", "think", "scream"]
+      },
+      {
+        "name": "im going back and never coming back to this place",
+        "description": "i'm done. i don't want to come here ever again!!.",
+        "actions": ["walk", "scream", "think"],
+        "bh": ["bh-default\\trigger_back_emo_phase.toml"]
+      },
+      {
+        "name": "im done!!",
+        "description": "you digging your own grave.",
+        "actions": ["scream", "think", "action"],
+        "end": true,
+        "endText": "death in the hope of freedom\tis a big lie for getting a cage\ndon't lie to yourself\tdon't dig yourself a grave"
+      }
+    ],
+    "SuperActions": {},
+    "BH": ["bh-default\\graveyard.toml"]
+  },
+  "6": {
+    "name": "abandoned house",
+    "startup": "you supposed to know this place. Yeah? [well you better do!!]",
+    "required_attribute": { "emo_phase": true },
+    "required_actions": ["#she was a good woman."],
+    "actions": {
+      "look around": "you looked around a bit.\n\tfamiliar yeah?. well hope you still remember this.",
+      "punch the wall": "you punched the wall.\n\twanna fell the pain huH!!.",
+      "cry": "you cried for a bit",
+      "pick up gun": "you picked up the gun that is on the floor.",
+      "action": "you done some action"
+    },
+    "achievements": [
+      {
+        "name": "everything is fine now!",
+        "description": "i had a enough!!.just leave me alone!! please im begging.",
+        "actions": ["pick up gun", "action"],
+        "end": true,
+        "endText": "feel the pain\tfrom the heart\nfeel the guiltiness\tfrom a your lie!"
+      },
+      {
+        "name": "stressed out!",
+        "description": "you are stressed out!!.\n\tfeel it.you know you deserve it.",
+        "actions": ["look around", "punch the wall"],
+        "bh": ["bh-default\\at_the_lowest_of_my_life.toml"]
+      }
+    ],
+    "SuperActions": {},
+    "BH": []
+  },
+  "7": {
+    "name": "garden-of-life",
+    "startup": "welcome my child to the garden of life. what makes you come here? please discus!.",
+    "required_attribute": {
+      "mental-health": 1
+    },
+    "required_actions": [
+      "#she was a good woman.",
+      "#im going back and never coming back to this place"
+    ],
+    "actions": {
+      "i want to die": "life has up and down but im sure you can find a reason not to die.\n\t*whisper in your ear* hey do you really want to listen to her now? you never give-d\n\ta shit about this place!!.",
+      "can you hear her": "little girl listen and observe. its not my mission but yours. plus i can only know about certain people.",
+      "do you know me?": "yes little girl.",
+      "what are you": "i'm the voice of a seraphim that is here to guide people.",
+      "i want to be free": "little girl. my voice can guide you.",
+      "want to clear my heart": "your heart is darker than it seems. its your job to clear your heart and her mind.\n\t*whisper* ohh really now? you gonna do that? LOL!!."
+    },
+    "achievements": [
+      {
+        "name": "set free?",
+        "description": "?.?.?.?.?.?.?.?",
+        "actions": [".take-me"],
+        "end": true,
+        "endText": "no matter what you do\tyou are still inside of the cage\nno matter how hard you try\tyou can't go back in time."
+      }
+    ],
+    "SuperActions": {
+      "take-me": "print(\"its your choice.\")"
+    },
+    "BH": []
+  }
+}

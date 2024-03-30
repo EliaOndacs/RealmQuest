@@ -1,0 +1,13 @@
+{
+  "pa": [
+    "#she was a good woman.",
+    "#im going back and never coming back to this place"
+  ],
+  "ia": {
+    "age": 16,
+    "health": 100,
+    "mental-health": 1,
+    "tags": [],
+    "emo_phase": false
+  }
+}

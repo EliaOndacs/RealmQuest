@@ -1,0 +1,51 @@
+{
+  "author": "EliaOndacs",
+  "1": {
+    "name": "control panel",
+    "startup": "this is the control panel useful for developers",
+    "required_actions": [],
+    "achievements": [],
+    "actions": {
+      "help": "this panel is controlled by SuperActions!",
+      "load_Example": "Example is now unlocked!"
+    },
+    "SuperActions": {
+      "LogLoadedLocations": "print(game.locations.keys())",
+      "ExportAPP": "import shutil;shutil.copyfile(os.path.join(dir_path,\"app.py\"), (os.path.join(os.getcwd(),\"app.py\")))",
+      "Boom": "print(\"force quitting.\");exit()",
+      "LogPA": "print(performed_Actions)"
+    }
+  },
+  "2": {
+    "name": "dev/Example",
+    "required_actions": ["load_Example"],
+    "startup": "this is Example Location",
+    "actions": {
+      "action1": "the result of the action1",
+      "action2": "the result of the action2",
+      "end": "you ended the game"
+    },
+    "achievements": [
+      {
+        "name": "achievement1",
+        "description": "this is the achievement1!",
+        "actions": ["action1"]
+      },
+      {
+        "name": "achievement2",
+        "description": "this is the achievement2!",
+        "actions": ["action2"]
+      },
+      {
+        "name": "specialAchievement",
+        "description": " this Achievement unlocked so this very Achievement will end the game!.",
+        "actions": ["end"],
+        "end": true,
+        "endText": "example game end."
+      }
+    ],
+    "SuperActions": {
+      "talk": "print('hi!')"
+    }
+  }
+}

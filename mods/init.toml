@@ -1,0 +1,6 @@
+[player]
+age = 16
+health = 100
+mental-health = 100
+tags = []
+emo_phase = false
