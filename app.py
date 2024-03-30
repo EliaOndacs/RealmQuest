@@ -27,10 +27,13 @@ BeepFreq = 500
 dir_path = os.path.dirname(os.path.realpath(__file__))
 #using a private library for now on a localhost api. merge actual function to the project later.s
 elia_lts = "http://127.0.0.1:5000/lts"
-r = requests.request("GET",elia_lts)
-with open("lts.py","w") as f:f.write(r.text)
+try:
+    r = requests.request("GET",elia_lts)
+    with open("lts.py","w") as f:f.write(r.text)
+    del r
+except requests.exceptions.ConnectionError:
+    pass
 from lts import *
-del r
 if ListWithoutSpaceToString(["test","1"]) == "o_O":
     exit()
 # =end of variables=
@@ -319,7 +322,7 @@ if __name__ == "__main__":
     #############
     os.system("@"+(os.path.join(dir_path,f"stc.{"bat" if platform.platform() == "Windows" else "sh"}")))
     with open("mypy.result",'r') as f:
-        if f.readline().replace("\n","") == "Success: no issues found in 1 source file":
+        if f.readline().replace("\n","") == "Success: no issues found in 2 source files":
             pass
         else:
             print("WARNING: you are playing on a corrupted version of ReamQuestLuncher.\ngame can be modified in a not professional way.")
