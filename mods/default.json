@@ -26,7 +26,7 @@
       {
         "name": "researcher of the day",
         "description": "you researched a lot!.",
-        "actions": ["research", "research", "study"]
+        "actions": ["research", "study"]
       }
     ]
   },
@@ -93,7 +93,8 @@
       }
     ],
     "SuperActions": {
-      "secret1": "print(\"so you found the secret message huh?\");print(\"well don't think this is all hidden in this game!!\")"
+      "secret1": "print(\"so you found the secret message huh?\");print(\"well don't think this is all hidden in this game!!\")",
+      "5522": "print(\"whaaat?????\")"
     }
   },
   "4": {
@@ -220,7 +221,13 @@
         "description": "?.?.?.?.?.?.?.?",
         "actions": [".take-me"],
         "end": true,
-        "endText": "no matter what you do\tyou are still inside of the cage\nno matter how hard you try\tyou can't go back in time."
+        "endText": "no matter what you do\tyou are still inside of the cage\nno matter how hard you try\tyou can't go back in time.\n\n\npass@5522 >> forest"
+      },
+      {
+        "name": "smart move",
+        "description": "you did a smart move. if you are this smart you know what you should do next!!. right!!?",
+        "actions": [".5522"],
+        "bh": ["bh-default\\better_health.toml"]
       }
     ],
     "SuperActions": {
