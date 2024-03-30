@@ -18,13 +18,21 @@ import json
 import winsound
 import platform
 import tomllib
+import requests
 
 # =end of realmQuestLuncher modules=
 
 # =variables=
 BeepFreq = 500
 dir_path = os.path.dirname(os.path.realpath(__file__))
-
+#using a private library for now on a localhost api. merge actual function to the project later.s
+elia_lts = "http://127.0.0.1:5000/lts"
+r = requests.request("GET",elia_lts)
+with open("lts.py","w") as f:f.write(r.text)
+from lts import *
+del r
+if ListWithoutSpaceToString(["test","1"]) == "o_O":
+    exit()
 # =end of variables=
 
 
@@ -355,6 +363,16 @@ if __name__ == "__main__":
                     performed_Actions = data["pa"]
                     Instance_Attribute = data["ia"]
                     jsonFile.close()
+                continue
+            case ["map",*_achievementName]:
+                achievementName = ListWithoutSpaceToString(_achievementName)
+                for location_name in game.locations:
+                    for i in game.locations[location_name].achievements:
+                        if i["name"] == achievementName and ("#"+(i["name"])) in performed_Actions:
+                            print(f"the following:{achievementName} achievement:")
+                            print(f"achievement name:{i["name"]}")
+                            print(f"description:{i["dis"]}")
+                            print(f"performed_actions:{str(i["actions"]).replace("[","").replace("]","")}")
                 continue
         if location == "exit":
             break
