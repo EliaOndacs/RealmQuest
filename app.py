@@ -25,14 +25,15 @@ import requests
 # =variables=
 BeepFreq = 500
 dir_path = os.path.dirname(os.path.realpath(__file__))
-#using a private library for now on a localhost api. merge actual function to the project later.s
+#using a private library for now on a localhost api. merge actual function to the project later.
+# also this guy don't work. so im going to use cache for now
 elia_lts = "http://127.0.0.1:5000/lts"
 try:
     r = requests.request("GET",elia_lts)
     with open("lts.py","w") as f:f.write(r.text)
     del r
 except requests.exceptions.ConnectionError:
-    pass
+    print("!# request failed. using cache.")
 from lts import *
 if ListWithoutSpaceToString(["test","1"]) == "o_O":
     exit()
