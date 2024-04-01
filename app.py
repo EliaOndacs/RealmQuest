@@ -320,13 +320,17 @@ class Game:
 
 if __name__ == "__main__":
     #############
-    os.system("@"+(os.path.join(dir_path,f"stc.{"bat" if platform.platform() == "Windows" else "sh"}")))
+    os.system("@Call stc.bat")
+    os.system("cls" if os.name == "nt" else "clear")
+    print("-\\"*(os.get_terminal_size().columns // 2))
+    print("!# checking app security. mypy-result.")
     with open("mypy.result",'r') as f:
         if f.readline().replace("\n","") == "Success: no issues found in 2 source files":
             pass
         else:
             print("WARNING: you are playing on a corrupted version of ReamQuestLuncher.\ngame can be modified in a not professional way.")
         f.close()
+    print("-# going forward.")
     #############
     print("loading game")
     performed_Actions:list = []
